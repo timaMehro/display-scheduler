@@ -19,7 +19,7 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
 
   const { trigger, isMutating, error: swrError } = useSavePowerTimers();
 
-  const savePowerTimers = async () => {
+  const onSave = async () => {
     const payload: PowerTimer = {
       timerNumber: 1,
       enabled,
@@ -89,11 +89,15 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
             </div>
             <div className="mt-6 grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-600 mb-2">
+                <label
+                  htmlFor={powerOffTime}
+                  className="block text-sm font-semibold text-gray-600 mb-2"
+                >
                   Power Off
                 </label>
                 <div className="relative">
                   <input
+                    id={powerOffTime}
                     type="time"
                     value={powerOffTime}
                     onChange={(e) => onChangePowerOff(e.target.value)}
@@ -103,11 +107,15 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-600 mb-2">
+                <label
+                  htmlFor={powerOnTime}
+                  className="block text-sm font-semibold text-gray-600 mb-2"
+                >
                   Power On
                 </label>
                 <div className="relative">
                   <input
+                    id={powerOnTime}
                     type="time"
                     value={powerOnTime}
                     onChange={(e) => onChangePowerOn(e.target.value)}
@@ -121,7 +129,7 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
             <div className="mt-6 flex justify-end">
               <button
                 type="button"
-                onClick={savePowerTimers}
+                onClick={onSave}
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium text-white bg-blue-950 hover:bg-blue-900 "
               >
                 Save Timer

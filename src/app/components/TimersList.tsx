@@ -130,13 +130,13 @@ export default function TimersListEditable({ onTimersCountChange }: Props) {
                 <div className="mt-4 flex gap-2">
                   <button
                     onClick={() => editTimer(t.timerNumber)}
-                    className="rounded-md px-3 py-1.5 text-sm font-medium text-white bg-blue-950 hover:bg-blue-900 transition-colors"
+                    className="rounded-full px-6 py-3 text-base font-medium disabled: disabled:bg-gray-300 text-white bg-blue-950 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => deleteTimer(t.timerNumber)}
-                    className="rounded-md px-3 py-1.5 text-sm font-medium text-rose-700 bg-rose-50 hover:bg-rose-100 transition-colors"
+                    className="rounded-full px-6 py-3 text-base font-medium disabled: disabled:bg-gray-300 text-rose-700 bg-rose-50 hover:bg-rose-100 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2"
                   >
                     Delete
                   </button>

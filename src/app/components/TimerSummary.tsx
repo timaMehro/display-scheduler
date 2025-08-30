@@ -14,7 +14,7 @@ export default function TimerSummary() {
   }
 
   function onCloseCreatePanel() {
-     setModalOpen(false);
+    setModalOpen(false);
   }
 
   function onTimersCountChange(count: number) {
@@ -38,7 +38,9 @@ export default function TimerSummary() {
                 <span className="text-base text-gray-800 font-medium">
                   You currently have
                 </span>
-                <span className="text-blue-900 font-semibold text-lg">{timersCount}</span>
+                <span className="text-blue-900 font-semibold text-lg">
+                  {timersCount}
+                </span>
                 <span className="text-base text-gray-800 font-medium">
                   timer
                 </span>
@@ -49,7 +51,7 @@ export default function TimerSummary() {
 
               <button
                 type="button"
-                className="rounded-full px-6 py-3 text-base font-medium disabled: disabled:bg-gray-300 text-white bg-blue-950 hover:bg-blue-900"
+                className="rounded-full  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 px-6 py-3 text-base font-medium disabled: disabled:bg-gray-300 text-white bg-blue-950 hover:bg-blue-900"
                 onClick={() => onclick()}
                 disabled={timersCount >= 7}
               >
@@ -63,7 +65,7 @@ export default function TimerSummary() {
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <TimerForm onCloseCreatePanel={() => onCloseCreatePanel()} />
       </Modal>
-      <TimersList  onTimersCountChange={(value) => onTimersCountChange(value) }/>
+      <TimersList onTimersCountChange={(value) => onTimersCountChange(value)} />
     </>
   );
 }
