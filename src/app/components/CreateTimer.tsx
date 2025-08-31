@@ -1,4 +1,4 @@
-// SinglePowerTimerDesktop.tsx
+// .tsx
 import React, { useState } from "react";
 import { PowerTimer } from "../../../types/types";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -10,7 +10,7 @@ interface Props {
   onCloseCreatePanel: () => void;
 }
 
-export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
+export default function CreateTimer({ onCloseCreatePanel }: Props) {
   const [enabled, setEnabled] = useState(true);
   const [powerOffTime, setPowerOffTime] = useState("18:00");
   const [powerOnTime, setPowerOnTime] = useState("06:00");
@@ -64,7 +64,13 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
   }
 
   return (
-    <div className="w-full mb-50 y-14">
+    <form
+      className="w-full mb-50 y-14"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSave();
+      }}
+    >
       <div className="mx-auto max-w-6xl px-4 ">
         <div className="mt-10 rounded-2xl border border-gray-200 bg-white shadow-sm relative">
           <button
@@ -128,7 +134,7 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
             <SelectableDays onChange={onChangeDays} />
             <div className="mt-6 flex justify-end">
               <button
-                type="button"
+                type="submit"
                 onClick={onSave}
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium text-white bg-blue-950 hover:bg-blue-900 "
               >
@@ -143,6 +149,6 @@ export default function SinglePowerTimerDesktop({ onCloseCreatePanel }: Props) {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }

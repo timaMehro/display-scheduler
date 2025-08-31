@@ -36,7 +36,7 @@ Example of a random failure when saving a timer.
 
 ![Timer Edit Error](./images/3.png)
 
---- 
+---
 
 ## Getting Started
 
@@ -45,3 +45,7 @@ Example of a random failure when saving a timer.
 npm install
 
 npm run dev
+
+npm run test
+
+npm run test:coverage
